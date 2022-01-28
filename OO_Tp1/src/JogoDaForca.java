@@ -85,13 +85,13 @@ public class JogoDaForca {
         case 1:  
             System.out.print("\n\n\tGERENCIAR TEMAS");
         	System.out.print("\n\nTemas disponíveis: " );
-        	TemasDisponiveis(temasTotais,numeroTemas); //metodo tema
+        	TemasDisponiveis(temasTotais,numeroTemas); 
         	while (true) { 
-        		System.out.print("\t1. Adicionar Tema\n\t2.Excluir Tema\n\nPara voltar ao menu digite: '0'\n\nEscolha uma opção:");
+        		System.out.print("\t1. Adicionar Tema\n\t2. Excluir Tema\n\nPara voltar ao menu digite: '0'\n\nEscolha uma opção:");
             	gerenciarTema = ler.nextInt();      
 
             	if(gerenciarTema == 0) {
-        	        break; // Interrompe
+        	        break; 
         	    }
             	
             	switch (gerenciarTema) {
@@ -101,8 +101,7 @@ public class JogoDaForca {
             			adicionarTema = ler.next();
                 		for (int j=0;j<QTemas;j++) {
                     		if (adicionarTema.equals(temasTotais[j][0])) {
-                        		//System.out.print("n° do tema:"+j);
-                    			fraseTeste = "\nEssa tema já existe.\nAdicione outro tema.\n\n";
+                    			fraseTeste = "\n\t--------\nEssa tema já existe.\nAdicione outro tema.\n\t--------\n";
                     			frase = fraseTeste;
                         	}
                 		} if (frase==fraseTeste) {
@@ -110,8 +109,6 @@ public class JogoDaForca {
                 		} else {
                     		temasTotais[numeroTemas][0]=adicionarTema;
                     		System.out.print("\nO tema: "+adicionarTema+" foi adicionado!\n");
-                   			//System.out.print("Numero tema: "+numeroTemas+"\n");
-                   			//System.out.print(temasTotais[numeroTemas][0]+"\n");
                     		System.out.print("\n\nTemas disponíveis: " );
                    			TemasDisponiveis(temasTotais,numeroTemas+1);
                    			numeroTemas++;
@@ -120,7 +117,6 @@ public class JogoDaForca {
                 		}
                 		fraseTeste=null;
             		} while(true);
-            		//fim caso 1
             		break;
             	case 2:
             		do {
@@ -140,8 +136,6 @@ public class JogoDaForca {
                 			for(int i=0;i<numeroTemas+1;i++) {
                 				temasTotais[posicaoExT+i][0]=temasTotais[posicaoExT+i+1][0];
                 			}
-                			//System.out.print("Numero tema excluido: "+posicaoExT+"\n");
-                			//System.out.print(temasTotais[numeroTemas][0]+"\n");
                 			System.out.print("\n\n\tGERENCIAR TEMAS");
                 			System.out.print("\n\nTemas disponíveis: " );
                    			TemasDisponiveis(temasTotais,numeroTemas-1);
@@ -153,7 +147,6 @@ public class JogoDaForca {
                 		fraseTeste=null;
             		} while(true);
             		break;
-            		//fim caso 2
         	    default:
         	        System.out.println("\n\t\tOpção inválida: " + gerenciarTema);
         	        System.out.println("\t\tTente novamente\n");
@@ -162,16 +155,11 @@ public class JogoDaForca {
         	 break;	
         case 2:  
         	System.out.print("\n\n\tGERENCIAR PALAVRAS");
-        	
         	System.out.print("\n\nTemas disponíveis: " );
         	TemasDisponiveis(temasTotais,numeroTemas); //metodo tema
-        	
         	System.out.print("Primeiro escolha um tema: " );
     		escolhaTema = ler.next();
     		indiceTema = TemasIndice(temas,escolhaTema,numeroTemas);
-    		
-    		
-    		//System.out.print("\nNúmero do tema escolhido: "+indiceTema+"\n");
     		System.out.print("\n");
     		
     		while(true){
@@ -182,22 +170,18 @@ public class JogoDaForca {
     			System.out.print("\n\t1. Adicionar Palavra\n\t2. Excluir Palavra\n\nPara voltar ao menu digite: '0'\n\nEscolha uma opção:");
             	gerenciarPalavra = ler.nextInt();
             	System.out.print("\n");
-            	
-            	
             	if (gerenciarPalavra==0) {
             		break;
             	}
-            	
             	switch(gerenciarPalavra) {
             	case 1:
-   
             		do {
             			System.out.print("Adicione Palavra: ");
             			adicionarPalavra = ler.next();
                 		for (int j=0;j<QTemas;j++) {
                     		if (adicionarPalavra.equals(temasTotais[indiceTema][j])) {
                         		//System.out.print("n° do tema:"+j);
-                    			fraseTeste = "\nEssa palavra já existe.\nAdicione outra palavra.\n\n";
+                    			fraseTeste = "\n\t--------\nEssa palavra já existe.\nAdicione outra palavra.\n\t--------\n";
                     			frase = fraseTeste;
                         	}
                 		} if (frase==fraseTeste) {
@@ -205,22 +189,13 @@ public class JogoDaForca {
                 		} else {
                     		temasTotais[indiceTema][numeroPalavra]=adicionarPalavra;
                     		System.out.print("\nA palavra: "+adicionarPalavra+" foi adicionada!\n");
-                   			
-                    		//System.out.print("\n\nPalavras disponíveis: " );
-                    		//PalavrasDisponiveis(temasTotais,indiceTema,numeroPalavra+1);
-                    		
                    			numeroPalavra++;
                    			System.out.print("Numero temas: "+numeroPalavra+"\n");
                    			break;
                 		}
                 		fraseTeste=null;
             		} while(true);
-            		
-            		
-            		
-            		
             		break;
-            		
             	case 2:
             		do {
             			System.out.println("Excluir Palavra: ");
@@ -238,14 +213,10 @@ public class JogoDaForca {
                 			temasTotais[indiceTema][posicaoExT]=null;
                 			for(int i=0;i<numeroTemas+1;i++) {
                 				temasTotais[indiceTema][posicaoExT+i]=temasTotais[indiceTema][posicaoExT+i+1];
-                				//temasTotais[posicaoExT+i][0]=temasTotais[posicaoExT+i+1][0];
                 			}
-                			//System.out.print("Numero tema excluido: "+posicaoExT+"\n");
-                			//System.out.print(temasTotais[numeroTemas][0]+"\n");
                 			System.out.print("\n\n\tGERENCIAR Palavras");
                 			System.out.print("\n\nPalavras disponíveis: " );
                 			PalavrasDisponiveis(temasTotais,indiceTema,numeroPalavra);
-                			//TemasDisponiveis(temasTotais,numeroTemas-1);
                    			numeroPalavra--;
                 			break;
                 		} else {
@@ -259,20 +230,16 @@ public class JogoDaForca {
             	}
     		}
         	break;
-        	//fim caso 2
         case 3:  
         	System.out.println("\nVamos jogar..." );
         	System.out.println("\n\t*********** O JOGO DA FORCA! ***********\n" );
-        	
         	System.out.print("Temas disponíveis: " );
         	TemasDisponiveis(temasTotais,numeroTemas);
     		System.out.print("Escolha um tema: ");
     		escolhaTema = ler.next();
-        	
         	indiceTema = TemasIndice(temas,escolhaTema,numeroTemas);
     		palavraChave = SortearPalavra(temas,indiceTema,numeroPalavra);
     		int tentativasMax = palavraChave.length()+5;
-    		
     		
     		for(int i = 0; i< palavraChave.length();i++) {
     			palavraAdivinhada += "_";
@@ -288,40 +255,39 @@ public class JogoDaForca {
     				}
     				//Jogo continuando
     				//System.out.print("\nErro: "+erro);
-    				System.out.print("\n ");
-    				System.out.print("\n\n\tJOGADA "+tentativas);
-    				System.out.print("\n\nChances: "+chances);
-    				System.out.print(" | Até agora adivinhado: "+palavraAdivinhada);
-    				System.out.print("\nEscolha uma letra: ");
+    			System.out.print("\n ");
+    			System.out.print("\n\n\tJOGADA "+tentativas);
+    			System.out.print("\n\nChances: "+chances);
+    			System.out.print(" | Até agora adivinhado: "+palavraAdivinhada);
+    			System.out.print("\nEscolha uma letra: ");				
     				
-    				char letraTentada = new Scanner(System.in).next().toLowerCase().charAt(0);//tira do capslock
-    				if(letraUsada.indexOf(letraTentada)>= 0) /*letra repitida*/ {
-    					System.out.print("\nLetra repetida\nTente outra letra!");
-    				} else {
-    					letraUsada += letraTentada;
-    					
-    					if (palavraChave.indexOf(letraTentada)>= 0) {
-    						palavraAdivinhada = "";
-    						erro += 0;
-    						for(int j = 0;j < palavraChave.length();j++) {/*Trocando o traço pela letra correta na palavra*/
-    							palavraAdivinhada += letraUsada.indexOf(palavraChave.charAt(j)) >=0 ? palavraChave.charAt(j): " _";
-    							
-    						}
-    						
-    						if (palavraAdivinhada.contains("_")) {
-    							System.out.print("\nContinue jogando...");
-    						} else {
-    							System.out.print("\nParabéns!\nVocê acertou a palavra: "+palavraAdivinhada);
-    							System.exit(0);
-    						}
-    					} else {
-    						System.out.print("\nIncorreto!"/*: "+ letraTentada + "\n"*/);
-    						erro++;
-    						chances--;
+    			char letraTentada = new Scanner(System.in).next().toLowerCase().charAt(0);//tira do capslock
+    			if(letraUsada.indexOf(letraTentada)>= 0) /*letra repitida*/ {
+    				System.out.print("\nLetra repetida\nTente outra letra!");
+    			} else {
+    				letraUsada += letraTentada;
+    			
+   					if (palavraChave.indexOf(letraTentada)>= 0) {
+    					palavraAdivinhada = "";
+    					erro += 0;
+    					for(int j = 0;j < palavraChave.length();j++) {/*Trocando o traço pela letra correta na palavra*/
+    						palavraAdivinhada += letraUsada.indexOf(palavraChave.charAt(j)) >=0 ? palavraChave.charAt(j): " _";	
     					}
+    					
+    					if (palavraAdivinhada.contains("_")) {
+    						System.out.print("\nContinue jogando...");
+    					} else {
+    						System.out.print("\nParabéns!\nVocê acertou a palavra: "+palavraAdivinhada);
+    						System.exit(0);
+    					}
+    				} else {
+    					System.out.print("\nIncorreto!"/*: "+ letraTentada + "\n"*/);
+   						erro++;
+    					chances--;
     				}
+    			}
     			}	
-    		}
+    		}	
         	break;
         default:
         	System.out.print("\n\n\t\t\t\tInválido! \n\t\t\t    ESCOLHA NOVAMENTE\n");
@@ -372,9 +338,5 @@ public class JogoDaForca {
 		System.out.println("\n");
 		
 	}
-	
-	
-
-	
 }
 		
